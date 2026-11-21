@@ -1,0 +1,9 @@
+{
+  "www.ic.nhs.uk": {
+    "sample_url": "http://www.ic.nhs.uk/pubs/cervscreen0708",
+    "status": 409,
+    "title": "DNS resolution error | www.ic.nhs.uk | Cloudflare",
+    "cloudflare_error": "1001",
+    "fetched_utc": "2026-11-21T02:48:07.476654+00:00"
+  }
+}

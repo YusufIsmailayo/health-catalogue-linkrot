@@ -1,0 +1,7 @@
+publisher,links,broken_floor_pct,broken_ceiling_pct,hard_dead_ci_lo,hard_dead_ci_hi,uncertain_pct,verdict
+"NHS Digital (merged into NHS England, 2023)",2489,3.85697067095219,73.4833266372037,3.168796364631224,4.687362646835849,69.62635596625151,indeterminate: uncertain share too big to place it
+Department of Health and Social Care,1160,0.8620689655172413,66.55172413793103,0.468920845750803,1.5796053454422254,65.6896551724138,indeterminate: uncertain share too big to place it
+NHS Business Services Authority,198,0.0,0.0,0.0,1.903274647049964,0.0,below 7% even if every uncertain link is dead
+NHS England,439,0.0,4.555808656036446,0.0,0.8674885105644998,4.555808656036446,below 7% even if every uncertain link is dead
+Public Health England (closed 2021; to UKHSA/OHID),17,0.0,0.0,0.0,18.432366037156456,0.0,too few links to judge
+UK Health Security Agency,2,0.0,0.0,0.0,65.76280471103807,0.0,too few links to judge

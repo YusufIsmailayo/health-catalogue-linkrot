@@ -1,0 +1,7 @@
+publisher,ok,hard_dead,uncertain,links,ok_pct,hard_dead_pct,uncertain_pct,hard_dead_ci_lo,hard_dead_ci_hi,broken_floor_pct,broken_ceiling_pct
+"NHS Digital (merged into NHS England, 2023)",627,95,1444,2166,28.9,4.4,66.7,3.6,5.3,4.4,71.1
+Department of Health and Social Care,362,8,300,670,54.0,1.2,44.8,0.6,2.3,1.2,46.0
+NHS Business Services Authority,193,0,0,193,100.0,0.0,0.0,0.0,2.0,0.0,0.0
+NHS England,72,0,2,74,97.3,0.0,2.7,0.0,4.9,0.0,2.7
+Public Health England (closed 2021; to UKHSA/OHID),9,0,0,9,100.0,0.0,0.0,0.0,29.9,0.0,0.0
+UK Health Security Agency,2,0,0,2,100.0,0.0,0.0,0.0,65.8,0.0,0.0

@@ -1,0 +1,127 @@
+{
+  "snapshot_utc": "2026-11-21T014501Z",
+  "api": "https://ckan.publishing.service.gov.uk/api/action",
+  "user_agent": "HealthCatalogueLinkCheck/1.0 (independent research into data.gov.uk link health; repo: health-catalogue-linkrot; HEAD-first, one request per host every 2s, no retries)",
+  "files": [
+    {
+      "publisher": "nhs-england",
+      "page": 0,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Anhs-england&rows=100&start=0&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:02.636297+00:00",
+      "path": "nhs-england/page_000.json",
+      "sha256": "46b3f0f81573f93909aa5592838d098ebba079958e8376a72fa610179e56efca",
+      "count_reported": 37,
+      "rows_in_page": 37
+    },
+    {
+      "publisher": "department-of-health",
+      "page": 0,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Adepartment-of-health&rows=100&start=0&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:03.950391+00:00",
+      "path": "department-of-health/page_000.json",
+      "sha256": "d6cb993a7aa689997820527df4689c1468ed85e087a414a27b2c0f8c1a643716",
+      "count_reported": 164,
+      "rows_in_page": 100
+    },
+    {
+      "publisher": "department-of-health",
+      "page": 1,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Adepartment-of-health&rows=100&start=100&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:05.127262+00:00",
+      "path": "department-of-health/page_001.json",
+      "sha256": "3533aa253d0163b8190691be23f2ee37065e88079038d9750a7ac967962e1969",
+      "count_reported": 164,
+      "rows_in_page": 64
+    },
+    {
+      "publisher": "nhs-business-services-authority",
+      "page": 0,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Anhs-business-services-authority&rows=100&start=0&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:06.274105+00:00",
+      "path": "nhs-business-services-authority/page_000.json",
+      "sha256": "d3eb2d489345aeaa8393ca40c67164297b9578ade4c1cfba03af964e63a3bd61",
+      "count_reported": 12,
+      "rows_in_page": 12
+    },
+    {
+      "publisher": "uk-health-security-agency",
+      "page": 0,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Auk-health-security-agency&rows=100&start=0&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:07.398655+00:00",
+      "path": "uk-health-security-agency/page_000.json",
+      "sha256": "b467b525bcbbe0dc6a3a9f7a7a4a8a85f321ed75d6274c6ea0b6c67c908db395",
+      "count_reported": 1,
+      "rows_in_page": 1
+    },
+    {
+      "publisher": "nhs-digital",
+      "page": 0,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Anhs-digital&rows=100&start=0&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:08.580556+00:00",
+      "path": "nhs-digital/page_000.json",
+      "sha256": "52c9477be57920ce995c234d7acb5030d0072e5bc0c792c25bfa5cc872020594",
+      "count_reported": 475,
+      "rows_in_page": 100
+    },
+    {
+      "publisher": "nhs-digital",
+      "page": 1,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Anhs-digital&rows=100&start=100&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:09.772259+00:00",
+      "path": "nhs-digital/page_001.json",
+      "sha256": "bdc9806cf7811d02cdb8d25b49eaf1cbc79b65ba8ada58e3725ab0c1ba8b052a",
+      "count_reported": 475,
+      "rows_in_page": 100
+    },
+    {
+      "publisher": "nhs-digital",
+      "page": 2,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Anhs-digital&rows=100&start=200&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:10.979123+00:00",
+      "path": "nhs-digital/page_002.json",
+      "sha256": "13c1ba007695493f9cb1b82beebb6cc372aa2f624c7e931b44f5c7fdd2aad88e",
+      "count_reported": 475,
+      "rows_in_page": 100
+    },
+    {
+      "publisher": "nhs-digital",
+      "page": 3,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Anhs-digital&rows=100&start=300&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:12.205525+00:00",
+      "path": "nhs-digital/page_003.json",
+      "sha256": "4767e4334b9c5e2d97b6e7bcd6685af1e78eaa56e36fe73ae49dc0a2fe3e3174",
+      "count_reported": 475,
+      "rows_in_page": 100
+    },
+    {
+      "publisher": "nhs-digital",
+      "page": 4,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Anhs-digital&rows=100&start=400&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:13.376230+00:00",
+      "path": "nhs-digital/page_004.json",
+      "sha256": "fe4f2b4ca4d8ed2524afc61802ce6282d2a3d80dbf28bbe7d32c7a615dfe827a",
+      "count_reported": 475,
+      "rows_in_page": 75
+    },
+    {
+      "publisher": "public-health-england",
+      "page": 0,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Apublic-health-england&rows=100&start=0&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:14.552286+00:00",
+      "path": "public-health-england/page_000.json",
+      "sha256": "a9371a030530e53ff231e92810311eb0f1b1a71ae86f27954a31cfab4680ebae",
+      "count_reported": 134,
+      "rows_in_page": 100
+    },
+    {
+      "publisher": "public-health-england",
+      "page": 1,
+      "request_url": "https://ckan.publishing.service.gov.uk/api/action/package_search?fq=organization%3Apublic-health-england&rows=100&start=100&sort=name+asc",
+      "fetched_utc": "2026-11-21T01:45:15.683022+00:00",
+      "path": "public-health-england/page_001.json",
+      "sha256": "49f9d5d78c5218c84d70ea4210e261ed21f60672d56bce8b559f525aea08d188",
+      "count_reported": 134,
+      "rows_in_page": 34
+    }
+  ]
+}
