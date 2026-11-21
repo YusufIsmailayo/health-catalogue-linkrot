@@ -411,9 +411,9 @@ that are hard-dead, uncertain or OK, with the link count printed on every bar.
 - The end of the red segment is the confirmed-dead share, the floor.
 - The end of the grey segment is what the broken share would be if every uncertain link were dead, the ceiling.
 
-The two dashed lines are the NDL's *national* rates as quoted (about 30% before the cleanup,
-about 7% after). They're there for scale. They aren't my figures, and their scope (the whole catalogue,
-tested June 2026) differs from mine (six health publishers, tested on the snapshot date).
+I deliberately draw no national reference lines. The national figures I was given cover the whole
+catalogue at a different date, and I couldn't retrieve their source post (LIMITS.md §6), so setting
+them beside mine would suggest a comparison the numbers can't carry.
 
 **Colour.** Red is hard-dead. Neutral grey with hatching is uncertain: it has no hue on purpose,
 because it means "unknown". Blue is OK. I validated these with the dataviz palette checker, which
@@ -425,7 +425,6 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
-from matplotlib.lines import Line2D
 
 t = pd.read_parquet(config.GOLD / "by_publisher_final.parquet")
 snapshot = pd.read_parquet(config.SILVER / "resources.parquet")["snapshot_utc"].iloc[0]
@@ -449,7 +448,7 @@ C_DEAD, C_UNC, C_OK = "#d03b3b", "#8c8a82", "#2a78d6"
 
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.edgecolor": GRID,
                      "text.color": INK, "axes.labelcolor": INK2, "xtick.color": INK2, "ytick.color": INK})
-fig, ax = plt.subplots(figsize=(10, 6.8), dpi=200)
+fig, ax = plt.subplots(figsize=(10, 6.2), dpi=200)
 fig.patch.set_facecolor(SURFACE); ax.set_facecolor(SURFACE)
 
 rows = list(t.index)[::-1]          # matplotlib draws bottom-up
@@ -477,19 +476,13 @@ for yi, pub in zip(y, rows):
     ax.annotate(dead_label, xy=(0, yi + H / 2), xytext=(1, 3), textcoords="offset points",
                 ha="left", va="bottom", fontsize=8, color=C_DEAD if r["hard_dead"] else MUTED,
                 fontweight="bold" if r["hard_dead"] else "normal", zorder=7,
-                bbox=dict(boxstyle="square,pad=0.15", fc=SURFACE, ec="none"))  # sits above the dashed lines
+                bbox=dict(boxstyle="square,pad=0.15", fc=SURFACE, ec="none"))
     # Link count on every bar, outside the 100% end, so no bar implies more than it holds.
     n_txt = f"n = {int(r['links']):,} links" + ("\\ntoo few to judge" if r["small"] else "")
     ax.text(101.5, yi, n_txt, ha="left", va="center", fontsize=8.5, color=INK2 if not r["small"] else MUTED)
 
-# National reference lines: quoted, not mine.
-for x, lab in [(7, "National ~7%\\nafter cleanup"), (30, "National ~30%\\nbefore cleanup")]:
-    ax.axvline(x, color=INK, lw=1.1, ls=(0, (4, 3)), zorder=5)
-    ax.text(x, len(rows) - 0.25, lab, ha="center", va="bottom", fontsize=8, color=INK, zorder=7,
-            bbox=dict(boxstyle="square,pad=0.2", fc=SURFACE, ec="none"))
-
 ax.set_yticks(list(y), [short[p] for p in rows])
-ax.set_xlim(0, 100); ax.set_ylim(-0.6, len(rows) - 0.1 + 0.55)
+ax.set_xlim(0, 100); ax.set_ylim(-0.6, len(rows) - 0.25)
 ax.set_xticks([0, 20, 40, 60, 80, 100], ["0%", "20%", "40%", "60%", "80%", "100%"])
 ax.tick_params(axis="y", length=0); ax.tick_params(axis="x", length=0)
 ax.xaxis.grid(True, color=GRID, lw=0.8); ax.set_axisbelow(True)
@@ -497,21 +490,19 @@ for side in ["top", "right", "left"]:
     ax.spines[side].set_visible(False)
 ax.set_xlabel("Share of resource links on data.gov.uk")
 
-fig.suptitle("Few health links are confirmed dead. Most of the legacy ones can't be checked at all",
+fig.suptitle("Few health links are confirmed dead. Most legacy links couldn't be verified by my checks",
              x=0.012, y=0.985, ha="left", fontsize=13, fontweight="bold")
 fig.text(0.012, 0.935, f"Share of resource links by status, health and social care publishers on data.gov.uk, checked {snapshot[:10]}",
          ha="left", fontsize=9.5, color=INK2)
 handles = [Patch(fc=C_DEAD, ec=SURFACE, label="Hard-dead (404, 410, DNS/connection failure)"),
            Patch(fc=C_UNC, ec=SURFACE, hatch="////", label="Uncertain (403, timeout, WAF/CAPTCHA, other)"),
-           Patch(fc=C_OK, ec=SURFACE, label="OK (2xx)"),
-           Line2D([0], [0], color=INK, lw=1.1, ls=(0, (4, 3)), label="National rate, as quoted by the NDL")]
-fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.005, 0.075), ncol=2, frameon=False, fontsize=8.5)
+           Patch(fc=C_OK, ec=SURFACE, label="OK (2xx)")]
+fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.005, 0.075), ncol=3, frameon=False, fontsize=8.5)
 fig.text(0.012, 0.012,
          "Source: data.gov.uk CKAN API snapshot and my own link check (HEAD-first, 2 s per host, no retries; browser re-check for 403s, timeouts and challenges).\\n"
-         "National lines: National Data Library, 'cleaning up data.gov.uk' (12 Nov 2026), quoted and not independently verified. Different scope and date from mine: for scale only.\\n"
          "NHS Digital and Public Health England are predecessor bodies, shown separately and not merged into their successors.",
          fontsize=7, color=MUTED, ha="left", va="bottom")
-fig.subplots_adjust(left=0.255, right=0.86, top=0.85, bottom=0.235)
+fig.subplots_adjust(left=0.255, right=0.86, top=0.87, bottom=0.215)
 config.OUTPUTS.mkdir(exist_ok=True)
 fig.savefig(config.OUTPUTS / "health_linkrot_by_publisher.png", facecolor=SURFACE)
 fig.savefig(config.OUTPUTS / "health_linkrot_by_publisher.svg", facecolor=SURFACE)
